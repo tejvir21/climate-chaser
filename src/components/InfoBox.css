@@ -1,0 +1,29 @@
+.card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.weather-icon {
+    padding-left: 2%;
+    color: red;
+    animation: colour 2s ease-in-out 0.5s infinite normal;
+}
+
+.dark {
+    color: black;
+    font-weight: 600;
+}
+
+@keyframes colour {
+    0% {
+        color: rgb(240, 255, 254);
+    }
+
+    50% {
+        color: rgb(0, 0, 0);
+    }
+
+    100% {
+        color: skyblue;
+    }
+}
