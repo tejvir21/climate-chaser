@@ -1,0 +1,37 @@
+.WeatherApp {
+  min-height: 100dvh;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f0f8ff;
+  animation: bg_color_change 10s infinite;
+  transition: background-color 1s ease-in-out;
+}
+
+@keyframes bg_color_change {
+  0% {
+    background-color: #b6d6f2;
+  }
+  30% {
+    background-color: #4e9ce1;
+  }
+  50% {
+    background-color: #34505d;
+  }
+  80% {
+    background-color: #2a2d30;
+  }
+  100% {
+    background-color: #b6d6f2;
+  }
+}
+
+@media (max-width: 500px) {
+  .WeatherApp {
+    padding: 10px;
+    gap: 10px;
+  }
+}

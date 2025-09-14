@@ -1,6 +1,25 @@
 .SearchBox {
-    text-align: center;
+  text-align: center;
+  height: fit-content;
+  padding: 12px 0px;
+  padding-bottom: 24px;
+  width: 400px;
+  background: #e4ebf1;
+  backdrop-filter: blur(30px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+  animation: bg_color 8.95s infinite;
+  transition: all 1s ease-in-out;
 }
 h2 {
-    margin: 2%;
+  margin: 2%;
+}
+
+@media (max-width: 500px) {
+  .SearchBox {
+    width: 100%;
+    padding: 8px 0px;
+    padding-bottom: 16px;
+  }
 }

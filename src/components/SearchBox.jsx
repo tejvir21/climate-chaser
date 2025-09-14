@@ -4,12 +4,12 @@ import "./SearchBox.css";
 import { useState } from "react";
 
 export default function SearchBox({ giveInfo }) {
-  const API_key = "6950e279fadbda53f02566f0e264c10f";
+  const API_key = import.meta.env.VITE_API_key;
 
   let [city, setCity] = useState("");
   let [error, isError] = useState(false);
 
-  const API_URL = "https://api.openweathermap.org/data/2.5/weather?";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   function handleChange(event) {
     setCity(event.target.value);
@@ -53,7 +53,7 @@ export default function SearchBox({ giveInfo }) {
       <form onSubmit={handleSubmit}>
         <TextField
           id="outlined-basic"
-          label="City"
+          label="Place"
           variant="outlined"
           title="Enter name of place"
           onChange={handleChange}

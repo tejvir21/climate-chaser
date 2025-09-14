@@ -1,29 +1,59 @@
+.InfoBox {
+  height: fit-content;
+  padding: 16px 0px;
+  padding-bottom: 24px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  background: whitesmoke;
+  backdrop-filter: blur(30px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+  animation: bg_color 8.95s infinite;
+  transition: all 1s ease-in-out;
+}
+
 .card-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  box-shadow: 12px 12px 12px #d9d9d9;
 }
 
 .weather-icon {
-    padding-left: 2%;
-    color: red;
-    animation: colour 2s ease-in-out 0.5s infinite normal;
+  padding-left: 2%;
+  color: red;
+  animation: colour 2s ease-in-out 0.5s infinite normal;
 }
 
 .dark {
-    color: black;
-    font-weight: 600;
+  color: black;
+  font-weight: 600;
 }
 
 @keyframes colour {
-    0% {
-        color: rgb(240, 255, 254);
-    }
+  0% {
+    color: rgb(240, 255, 254);
+  }
 
-    50% {
-        color: rgb(0, 0, 0);
-    }
+  50% {
+    color: rgb(0, 0, 0);
+  }
 
-    100% {
-        color: skyblue;
-    }
+  100% {
+    color: skyblue;
+  }
+}
+
+@media (max-width: 500px) {
+  .InfoBox {
+    width: 100%;
+    padding: 8px 0px;
+    padding-bottom: 16px;
+  }
+  .card-container {
+    width: 90%;
+  }
 }

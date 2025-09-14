@@ -8,11 +8,11 @@ export default function WeatherApp() {
     let [info, setInfo] = useState("")
 
     return (
-        <>
+        <div className="WeatherApp">
             <SearchBox giveInfo={setInfo} />
             { info === "" ? "" : <InfoBox info={info} /> }
-            
-        </>
+
+        </div>
     )
 
 }
