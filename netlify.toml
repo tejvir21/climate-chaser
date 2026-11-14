@@ -1,0 +1,34 @@
+# Netlify deployment for Climate Chaser (static Vite site)
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Security headers (production only — the dev server is unaffected).
+# style-src allows 'unsafe-inline' because Tailwind/MUI-free CSS is static, but
+# React injects inline styles (wind compass, chart tooltips) at runtime.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://*.tile.openweathermap.org https://tilecache.rainviewer.com https://tiles.openfreemap.org; font-src 'self' data:; connect-src 'self' https://api.open-meteo.com https://air-quality-api.open-meteo.com https://archive-api.open-meteo.com https://geocoding-api.open-meteo.com https://api.openweathermap.org https://api.rainviewer.com https://api.bigdatacloud.net; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Single-page app: serve index.html for any unmatched path (React Router).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Required environment variables (set in the Netlify UI:
+# Site settings -> Environment variables -> Add variable):
+#   VITE_OPENWEATHER_API_KEY   OpenWeatherMap key (optional — enables the secondary provider)
+#   VITE_IMD_API_ENABLED       "false" by default; set "true" only with a key
+#   VITE_IMD_API_KEY           IMD registration key (optional)
+#   VITE_DEFAULT_CITY          default first-run city (default: Noida)
+#
+# Open-Meteo needs NO key. VITE_* variables are inlined into the client bundle
+# at build time — never put private secrets in them. The OpenWeatherMap key is
+# safe for the free tier but should be restricted in the OWM dashboard.

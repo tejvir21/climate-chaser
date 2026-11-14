@@ -1,0 +1,33 @@
+{
+  "name": "Climate Chaser — Weather Intelligence",
+  "short_name": "Climate Chaser",
+  "description": "Current conditions, 16-day forecasts, air quality, climate history, maps and travel planning for India and the world.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b1220",
+  "theme_color": "#101a2e",
+  "lang": "en",
+  "categories": ["weather", "news", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
